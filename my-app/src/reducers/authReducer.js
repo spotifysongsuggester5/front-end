@@ -1,5 +1,5 @@
 const initialState = {
-    login: {
+    credentials: {
         username: '',
         password: ''
     }
@@ -8,6 +8,11 @@ const initialState = {
 export const authReducer = (state = initialState, action) => {
     switch (action.type) {
         case 'FETCH':
+        return {
+            ...state,
+            login: action.payload
+        }
+        case 'SIGNUP':
         return {
             ...state,
             login: action.payload
