@@ -3,12 +3,14 @@ import './App.css';
 
 import {connect} from 'react-redux';
 import {fetchData} from './actions';
+import Dashboard from './components/Dashboard';
 
 const App = props => {
   console.log(props);
   return (
     <div className="App">
       <h1>Hello world!!</h1>
+      <Dashboard />
     </div>
   );
 }
