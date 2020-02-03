@@ -15,10 +15,10 @@ export const fetchData = () => dispatch => {
     }, [dispatch])
 };
 
-export const signUp = user => dispatch => {
-    axios.post('https://spotify-song-suggester-5.herokuapp.com/register', user)
+export const login = user => dispatch => {
+    axios.post('https://spotify-song-suggester-5.herokuapp.com/login', user)
         .then(response => {
-            dispatch({ type: 'SIGNUP', payload: response});
+            dispatch({ type: 'LOGIN', payload: response});
         })
         .catch(function (error) {
         console.log(error);

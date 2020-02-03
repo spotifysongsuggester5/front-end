@@ -12,7 +12,7 @@ export const authReducer = (state = initialState, action) => {
             ...state,
             credentials: action.payload
         }
-        case 'SIGNUP':
+        case 'LOGIN':
         return {
             ...state,
             login: action.payload
