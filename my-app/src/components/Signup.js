@@ -1,17 +1,31 @@
 import React, { useState, useEffect } from "react";
 
 export default function LoginForm() {
-  const [userSignUp, setUserSignUp] = useState([]);
+  const [credentials, setCredentials] = useState({
+    username: "",
+    password: ""
+  });
 
   const handleChange = (event) => {
-    setUserSignUp(event.target.value);
+    event.preventDefault();
+    setCredentials({
+      ...credentials,
+      [event.target.name]: event.target.value
+    });
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setCredentials({ ...credentials });
+    console.log(credentials);
   };
 
   return (
     <div>
-      <form>
+      <form onSubmit={handleSubmit}>
         <label htmlFor="username">username: </label>
         <input
+          value={credentials.username}
           name="username"
           type="email"
           onChange={handleChange}
@@ -19,7 +33,12 @@ export default function LoginForm() {
         />
         <br />
         <label htmlFor="password">password: </label>
-        <input name="password" type="password" />
+        <input
+          value={credentials.password}
+          name="password"
+          type="password"
+          onChange={handleChange}
+        />
         <button>Submit</button>
       </form>
     </div>
