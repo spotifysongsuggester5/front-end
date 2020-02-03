@@ -1,26 +1,32 @@
-import React from 'react';
-import './App.css';
+import React from "react";
+import "./App.css";
+import { Route, Switch } from "react-router-dom";
+import LoginForm from './components/LoginForm';
+import Signup from './components/Signup';
+import PrivateRoute from './components/PrivateRoute';
 
 import {connect} from 'react-redux';
-import {fetchData, signUp} from './actions';
+import {fetchData} from './actions';
 
 const App = props => {
   props.fetchData();
-  console.log(props);
   return (
     <div className="App">
-      <h1>Hello!!</h1>
+      <h1>Hello world!!</h1>
+      <Route path="/">
+        <LoginForm />
+      </Route>
+      <Route path="/signup">
+        <Signup />
+      </Route>
     </div>
   );
-}
+};
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    credentials: state.authReducer.credentials,
-  }
-}
+    login: state
+  };
+};
 
-export default connect(
-  mapStateToProps,
-  {fetchData, signUp}
-)(App);
+export default connect(mapStateToProps, {fetchData})(App);
