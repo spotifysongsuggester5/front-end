@@ -5,10 +5,11 @@ import {connect} from 'react-redux';
 import {fetchData, signUp} from './actions';
 
 const App = props => {
+  props.fetchData();
   console.log(props);
   return (
     <div className="App">
-      <h1>Hello world!!</h1>
+      <h1>Hello!!</h1>
     </div>
   );
 }

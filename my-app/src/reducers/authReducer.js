@@ -1,6 +1,6 @@
 const initialState = {
     credentials: {
-        username: '',
+        username: 'Hello',
         password: ''
     }
 }
@@ -10,7 +10,7 @@ export const authReducer = (state = initialState, action) => {
         case 'FETCH':
         return {
             ...state,
-            login: action.payload
+            credentials: action.payload
         }
         case 'SIGNUP':
         return {
