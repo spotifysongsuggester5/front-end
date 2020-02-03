@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 
 import {connect} from 'react-redux';
+import {fetchData} from './actions';
 
 const App = props => {
   console.log(props);
@@ -13,13 +14,12 @@ const App = props => {
 }
 
 const mapStateToProps = state => {
-  console.log(state);
   return {
-    login: state,
+    login: state.authReducer.login,
   }
 }
 
 export default connect(
   mapStateToProps,
-  {}
+  {fetchData}
 )(App);
