@@ -1,10 +1,9 @@
 import React from "react";
 import "./App.css";
 import { Route, Switch } from "react-router-dom";
-import LoginForm from './components/LoginForm';
 import Signup from './components/Signup';
 import PrivateRoute from './components/PrivateRoute';
-
+import LoginForm from './components/Login';
 import {connect} from 'react-redux';
 import {fetchData} from './actions';
 
