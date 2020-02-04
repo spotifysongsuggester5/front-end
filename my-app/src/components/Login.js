@@ -18,10 +18,13 @@ function LoginForm(props) {
     });
   };
 
+
   const handleSubmit = (event) => {
     event.preventDefault();
     props.login(credentials);
-    props.history.push('/dashboard');
+    setTimeout(() => {
+      props.history.push("/dashboard");
+    }, 500);
   };
 
   return (
