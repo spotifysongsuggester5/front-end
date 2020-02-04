@@ -4,15 +4,7 @@ import { fetchData } from "../actions";
 
 import "../App.css";
 
-import {
-  Card,
-  Button,
-  CardHeader,
-  CardFooter,
-  CardBody,
-  CardTitle,
-  CardText
-} from "reactstrap";
+import { Button } from "reactstrap";
 
 const SongList = (props) => {
   props.fetchData();
@@ -22,25 +14,15 @@ const SongList = (props) => {
   return (
     <div className="card-container">
       <div className="cards">
-        <Card>
-          <CardHeader
-            style={{ backgroundColor: "#333", borderColor: "#333" }}
-          >
-            Artist: {props.songs.artist_name}
-          </CardHeader>
-          <CardBody style={{ backgroundColor: "#3b3939", borderColor: "#333" }}>
-            <CardTitle>Song Name: {props.songs.song_name}</CardTitle>
-            <CardText>Duration: {props.songs.duration}</CardText>
-            <Button color="success" src={props.songs.song_url}>
-              Play Song
-            </Button>
-          </CardBody>
-          <CardFooter
-            style={{ backgroundColor: "#333", borderColor: "#333" }}
-          >
-            Genre: {props.songs.genre}
-          </CardFooter>
-        </Card>
+        <div className="card-header">Artist: {props.songs.artist_name}</div>
+        <div className="card-body">
+          <p className="card-title">Song Name: {props.songs.song_name}</p>
+          <p className="card-text">Duration: {props.songs.duration}</p>
+          <Button color="success" src={props.songs.song_url}>
+            Play Song
+          </Button>
+        </div>
+        <footer className="card-footer">Genre: {props.songs.genre}</footer>
       </div>
     </div>
   );
