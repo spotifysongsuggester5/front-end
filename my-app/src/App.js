@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Signup from './components/Signup';
 import PrivateRoute from './components/PrivateRoute';
 import Dashboard from './components/Dashboard';
@@ -15,7 +15,6 @@ const App = () => {
           <Route exact path="/" component={Login} />
           <Route path="/signup" component={Signup} />
           <PrivateRoute path="/dashboard" component={Dashboard} />
-          <PrivateRoute path="/song-form" component={SongForm} />
         </Switch>
       </Router>
     </div>

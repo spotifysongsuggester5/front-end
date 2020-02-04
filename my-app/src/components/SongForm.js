@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import {Link} from 'react-router-dom';
 
 import { connect } from "react-redux";
 import {addSong} from '../actions';
@@ -8,20 +7,20 @@ function LoginForm(props) {
     const [newSong, setNewSong] = useState(props.newSong)
     
     const handleChange = (event) => {
-    event.preventDefault();
-    setNewSong({
-        ...newSong,
-        [event.target.name]: event.target.value
-    });
+        event.preventDefault();
+        setNewSong({
+            ...newSong,
+            [event.target.name]: event.target.value
+        });
     };
 
     const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log(newSong);
-    // props.addSong(newSong);
-    setNewSong({
-        ...newSong
-    })
+        event.preventDefault();
+        console.log(newSong);
+        props.addSong(newSong);
+        // setNewSong({
+        //     ...newSong
+        // });
     };
 
     return (

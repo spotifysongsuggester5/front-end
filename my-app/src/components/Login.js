@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import {Link} from 'react-router-dom';
+import axios from 'axios';
 
 import * as Yup from "yup";
 
 import { connect } from "react-redux";
-import { login } from "../actions";
 
 // const yup = require("yup");
 
@@ -34,10 +34,18 @@ function LoginForm(props) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    props.login(credentials);
-    setTimeout(() => {
-      props.history.push("/dashboard");
-    }, 500);
+    axios
+      .post(
+        "https://spotify-song-suggester-5.herokuapp.com/api/auth/login",
+        props.credentials
+      )
+      .then((response) => {
+        localStorage.setItem('token', response.data.token);
+        console.log(response);
+      });
+      setTimeout(() => {
+        props.history.push("/dashboard");
+      }, 1000);
   };
 
   return (
@@ -74,4 +82,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { login })(LoginForm);
+export default connect(mapStateToProps, {})(LoginForm);

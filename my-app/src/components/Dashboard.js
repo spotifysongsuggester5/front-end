@@ -4,7 +4,6 @@ import SongList from './SongList';
 import SongForm from './SongForm';
 
 export default function Dashboard () {
-
     return (
         <div>
             <div className="nav-links">
@@ -13,7 +12,7 @@ export default function Dashboard () {
             </div>
             <h1>Hello Dash!</h1>
             <SongList />
-            <SongForm />
+            {/* <SongForm /> */}
         </div>
     )
 }

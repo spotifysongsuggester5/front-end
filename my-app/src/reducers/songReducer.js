@@ -8,7 +8,6 @@ const initialState = {
         }
     ]
 }
-        
 
 export const songReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -20,7 +19,7 @@ export const songReducer = (state = initialState, action) => {
         case 'ADD_SONG':
         return {
             ...state,
-            newSong: action.payload
+            songs: [...action.payload]
         }
         default:
         return state;

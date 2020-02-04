@@ -5,7 +5,7 @@ import { axiosWithAuth } from "../utils/axiosWithAuth";
 export const fetchData = () => dispatch => {
     useEffect(() => {
         axiosWithAuth()
-            .get('https://spotify-song-suggester-5.herokuapp.com/')
+            .get('https://spotify-song-suggester-5.herokuapp.com/api/songs')
             .then(res => {
                 dispatch({ type: 'FETCH', payload: res.data });
             })
@@ -15,21 +15,9 @@ export const fetchData = () => dispatch => {
     }, [dispatch])
 };
 
-export const login = user => dispatch => {
-    axios
-    .post('https://spotify-song-suggester-5.herokuapp.com/api/auth/login', user)
-        .then(response => {
-            localStorage.setItem('token', response.data.token);
-            dispatch({ type: 'LOGIN', payload: response.data.token});
-        })
-        .catch(function (error) {
-        console.log(error);
-        });
-};
-
-export const addSong = song => dispatch => {
+export const addSong = () => dispatch => {
     axiosWithAuth()
-    .post('https://spotify-song-suggester-5.herokuapp.com/api/songs', song)
+    .post('https://spotify-song-suggester-5.herokuapp.com/api/songs')
         .then(response => {
             dispatch({ type: 'ADD_SONG', payload: response.data});
         })

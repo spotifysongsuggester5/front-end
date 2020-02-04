@@ -16,9 +16,6 @@ import {
 
 const SongList = (props) => {
   props.fetchData();
-  setTimeout(() => {
-    console.log(`These the songs in the song list component`, props.songs);
-  }, 1000);
   return (
     <div className="card-container">
       <div className="cards">
@@ -47,7 +44,6 @@ const SongList = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
     songs: state.songReducer.songs
   };

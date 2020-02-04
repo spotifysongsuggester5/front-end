@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import axios from "axios";
 
 import {connect} from 'react-redux';
-import {login} from '../actions';
 import { Link } from "react-router-dom";
 
 function LoginForm(props) {
@@ -64,4 +63,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { login })(LoginForm);
+export default connect(mapStateToProps, {})(LoginForm);
