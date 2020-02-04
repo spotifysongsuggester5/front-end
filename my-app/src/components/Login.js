@@ -70,7 +70,7 @@ function LoginForm(props) {
 
 const mapStateToProps = (state) => {
   return {
-    credentials: state.credentials
+    credentials: state.authReducer.credentials
   };
 };
 

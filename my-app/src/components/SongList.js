@@ -49,7 +49,7 @@ const SongList = (props) => {
 const mapStateToProps = (state) => {
   console.log(state);
   return {
-    songs: state.authReducer.songs
+    songs: state.songReducer.songs
   };
 };
 
