@@ -7,7 +7,6 @@ export const fetchData = () => dispatch => {
         axiosWithAuth()
             .get('https://spotify-song-suggester-5.herokuapp.com/')
             .then(res => {
-                console.log(res);
                 dispatch({ type: 'FETCH', payload: res.data });
             })
             .catch(err => {

@@ -24,8 +24,6 @@ const SongList = (props) => {
       <div className="cards">
         <Card>
           <CardHeader
-            body
-            inverse
             style={{ backgroundColor: "#333", borderColor: "#333" }}
           >
             Artist: {props.songs.artist_name}
@@ -38,8 +36,6 @@ const SongList = (props) => {
             </Button>
           </CardBody>
           <CardFooter
-            body
-            inverse
             style={{ backgroundColor: "#333", borderColor: "#333" }}
           >
             Genre: {props.songs.genre}

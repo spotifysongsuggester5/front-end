@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {Link} from 'react-router-dom';
 
 import * as Yup from "yup";
 
@@ -40,10 +41,10 @@ function LoginForm(props) {
   };
 
   return (
-    <div>
+    <div className='form-div'>
       <h1>Login</h1>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="username">username: </label>
+        <label htmlFor="username">Username </label>
         <input
           className="username-bars"
           value={credentials.username}
@@ -52,7 +53,7 @@ function LoginForm(props) {
           onChange={handleChange}
         />
         <br />
-        <label htmlFor="password">password: </label>
+        <label htmlFor="password">Password </label>
         <input
           className="password-bars"
           value={credentials.password}
@@ -60,8 +61,8 @@ function LoginForm(props) {
           type="text"
           onChange={handleChange}
         />
-        <br />
-        <button className="submit-button">Submit</button>
+        <button className='btn btn-success submit'>Submit</button>
+        <Link to='/signup'>Don't have account? Click here!</Link>
       </form>
     </div>
   );

@@ -3,13 +3,10 @@ import "./App.css";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import Signup from './components/Signup';
 import PrivateRoute from './components/PrivateRoute';
-import {connect} from 'react-redux';
-import {fetchData} from './actions';
 import Dashboard from './components/Dashboard';
 import Login from "./components/Login";
 
-const App = props => {
-  props.fetchData();
+const App = () => {
   return (
     <div className="App">
       <Router>
@@ -23,11 +20,4 @@ const App = props => {
   );
 };
 
-const mapStateToProps = (state) => {
-  console.log(state);
-  return {
-    login: state
-  };
-};
-
-export default connect(mapStateToProps, {fetchData})(App);
+export default App;
