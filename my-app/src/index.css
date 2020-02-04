@@ -19,3 +19,9 @@ code {
 .password-bars:hover {
   box-shadow: 0 0 10px;
 }
+
+.cards {
+  border: 1px soild black;
+  width: 50%;
+  color: pink;
+}

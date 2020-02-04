@@ -1,8 +1,10 @@
 const initialState = {
     credentials: {
-        username: 'Hello',
+        username: '',
         password: ''
-    }
+    },
+    songs: [],
+    token: ''
 }
 
 export const authReducer = (state = initialState, action) => {
@@ -10,11 +12,12 @@ export const authReducer = (state = initialState, action) => {
         case 'FETCH':
         return {
             ...state,
-            credentials: action.payload
+            songs: action.payload
         }
         case 'LOGIN':
         return {
             ...state,
+            token: action.payload
         }
         default:
         return state;

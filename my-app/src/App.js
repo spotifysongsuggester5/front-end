@@ -1,28 +1,30 @@
 import React from "react";
 import "./App.css";
-import { Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import Signup from './components/Signup';
 import PrivateRoute from './components/PrivateRoute';
-import LoginForm from './components/Login';
 import {connect} from 'react-redux';
 import {fetchData} from './actions';
+import Dashboard from './components/Dashboard';
+import Login from "./components/Login";
 
 const App = props => {
   props.fetchData();
   return (
     <div className="App">
-      <h1>Hello world!!</h1>
-      <Route path="/">
-        <LoginForm />
-      </Route>
-      <Route path="/signup">
-        <Signup />
-      </Route>
+      <Router>
+        <Switch>
+          <Route exact path="/" component={Login} />
+          <Route path="/signup" component={Signup} />
+          <PrivateRoute path="/dashboard" component={Dashboard} />
+        </Switch>
+      </Router>
     </div>
   );
 };
 
 const mapStateToProps = (state) => {
+  console.log(state);
   return {
     login: state
   };

@@ -1,10 +1,10 @@
-import axios from 'axios';
 import {useEffect} from 'react';
+import { axiosWithAuth } from "../utils/axiosWithAuth";
 
-export const fetchData = props => dispatch => {
+export const fetchData = () => dispatch => {
     useEffect(() => {
-        axios
-            .get('https://spotify-song-suggester-5.herokuapp.com')
+        axiosWithAuth()
+            .get('https://spotify-song-suggester-5.herokuapp.com/')
             .then(res => {
                 console.log(res);
                 dispatch({ type: 'FETCH', payload: res.data });
@@ -16,9 +16,11 @@ export const fetchData = props => dispatch => {
 };
 
 export const login = user => dispatch => {
-    axios.post('https://spotify-song-suggester-5.herokuapp.com/api/auth/login', user)
+    axiosWithAuth()
+    .post('https://spotify-song-suggester-5.herokuapp.com/api/auth/login', user)
         .then(response => {
-            dispatch({ type: 'LOGIN', payload: response});
+            localStorage.setItem('token', response.data.token);
+            dispatch({ type: 'LOGIN', payload: response.data.token});
         })
         .catch(function (error) {
         console.log(error);
