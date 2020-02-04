@@ -7,8 +7,8 @@ export default function Dashboard () {
     return (
         <div>
             <div className="nav-links">
-                <Link to="/" onClick={() => localStorage.clear()}>Sign Out</Link>
                 <Link to="/dashboard">Dashboard</Link>
+                <Link to="/" onClick={() => localStorage.clear()}>Sign Out</Link>
             </div>
             <h1>Hello Dash!</h1>
                 <SongList />

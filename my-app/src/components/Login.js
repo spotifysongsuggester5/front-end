@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {Link} from 'react-router-dom';
 
 import {connect} from 'react-redux';
 import {login} from '../actions';
@@ -28,10 +29,10 @@ function LoginForm(props) {
   };
 
   return (
-    <div>
+    <div className='form-div'>
       <h1>Login</h1>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="username">username: </label>
+        <label htmlFor="username">Username </label>
         <input
           value={credentials.username}
           name="username"
@@ -39,7 +40,7 @@ function LoginForm(props) {
           onChange={handleChange}
         />
         <br />
-        <label htmlFor="password">password: </label>
+        <label htmlFor="password">Password </label>
         <input
           value={credentials.password}
           name="password"
@@ -47,6 +48,7 @@ function LoginForm(props) {
           onChange={handleChange}
         />
         <button>Submit</button>
+        <Link to='/signup'>Don't have account? Click here!</Link>
       </form>
     </div>
   );

@@ -3,6 +3,7 @@ import axios from 'axios';
 
 import {connect} from 'react-redux';
 import {login} from '../actions';
+import { Link } from "react-router-dom";
 
 function LoginForm(props) {
   console.log(props);
@@ -29,7 +30,7 @@ function LoginForm(props) {
 
   return (
     <div>
-      <h1>Sign Up</h1>
+      <h1 className='form-div'>Sign Up</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="username">username: </label>
         <input
@@ -37,7 +38,6 @@ function LoginForm(props) {
           name="username"
           type="text"
           onChange={handleChange}
-          placeholder="Johndoe@gmail.com"
         />
         <br />
         <label htmlFor="password">password: </label>
@@ -48,6 +48,7 @@ function LoginForm(props) {
           onChange={handleChange}
         />
         <button>Submit</button>
+        <Link to='/'>Already have an account? Click here!</Link>
       </form>
     </div>
   );
