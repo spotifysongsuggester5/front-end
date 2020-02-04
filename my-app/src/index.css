@@ -19,14 +19,3 @@ code {
 .password-bars:hover {
   box-shadow: 0 0 10px;
 }
-
-.card-container {
-  display: flex;
-  justify-content: space-around;
-}
-
-.cards {
-  border: 1px soild black;
-  width: 22.5%;
-  color: white;
-}
