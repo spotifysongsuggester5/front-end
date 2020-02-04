@@ -1,3 +1,4 @@
+import axios from 'axios';
 import {useEffect} from 'react';
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 
@@ -16,7 +17,7 @@ export const fetchData = () => dispatch => {
 };
 
 export const login = user => dispatch => {
-    axiosWithAuth()
+    axios
     .post('https://spotify-song-suggester-5.herokuapp.com/api/auth/login', user)
         .then(response => {
             localStorage.setItem('token', response.data.token);
