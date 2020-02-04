@@ -1,13 +1,11 @@
-import axios from 'axios';
 import {useEffect} from 'react';
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 
 export const fetchData = () => dispatch => {
     useEffect(() => {
         axiosWithAuth()
-            .get('https://spotify-song-suggester-5.herokuapp.com')
+            .get('https://spotify-song-suggester-5.herokuapp.com/')
             .then(res => {
-                console.log(res);
                 dispatch({ type: 'FETCH', payload: res.data });
             })
             .catch(err => {

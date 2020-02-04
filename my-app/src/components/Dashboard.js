@@ -1,8 +1,9 @@
 import React from 'react';
-import { BrowserRouter as Route, Link, Switch } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import SongList from './SongList';
 
+export default function Dashboard () {
 
-export default function Dashboard (props) {
     return (
         <div>
             <div className="nav-links">
@@ -10,6 +11,7 @@ export default function Dashboard (props) {
                 <Link to="/dashboard">Dashboard</Link>
             </div>
             <h1>Hello Dash!</h1>
+                <SongList />
         </div>
     )
 }
