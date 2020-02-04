@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
-
+import SongList from './SongList';
 
 export default function Dashboard (props) {
 
@@ -11,6 +11,7 @@ export default function Dashboard (props) {
                 <Link to="/dashboard">Dashboard</Link>
             </div>
             <h1>Hello Dash!</h1>
+                <SongList />
         </div>
     )
 }

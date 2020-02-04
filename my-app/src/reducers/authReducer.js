@@ -3,6 +3,7 @@ const initialState = {
         username: '',
         password: ''
     },
+    songs: [],
     token: ''
 }
 
@@ -11,7 +12,7 @@ export const authReducer = (state = initialState, action) => {
         case 'FETCH':
         return {
             ...state,
-            credentials: action.payload
+            songs: action.payload
         }
         case 'LOGIN':
         return {
