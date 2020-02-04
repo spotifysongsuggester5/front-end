@@ -1,8 +1,21 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
+import * as Yup from "yup";
+
 import { connect } from "react-redux";
 import { login } from "../actions";
+
+// const yup = require("yup");
+
+// const schema = Yup.object().shape({
+//   username: Yup.require()
+//     .min()
+//     .error(),
+//   password: Yup.require()
+//     .min()
+//     .error()
+// });
 
 function LoginForm(props) {
   console.log(props);
@@ -23,7 +36,7 @@ function LoginForm(props) {
     event.preventDefault();
     axios
       .post(
-        "https://spotify-song-suggester-5.herokuapp.com/api/auth/register",
+        "https://spotify-song-suggester-5.herokuapp.com/api/auth/login",
         credentials
       )
       .then((response) => {
@@ -33,10 +46,11 @@ function LoginForm(props) {
 
   return (
     <div>
-      <h1>Sign Up</h1>
+      <h1>Login</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="username">username: </label>
         <input
+          className="username-bars"
           value={credentials.username}
           name="username"
           type="text"
@@ -46,12 +60,14 @@ function LoginForm(props) {
         <br />
         <label htmlFor="password">password: </label>
         <input
+          className="password-bars"
           value={credentials.password}
           name="password"
           type="text"
           onChange={handleChange}
         />
-        <button>Submit</button>
+        <br />
+        <button className="submit-button">Submit</button>
       </form>
     </div>
   );

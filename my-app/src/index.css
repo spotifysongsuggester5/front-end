@@ -12,6 +12,10 @@ code {
     monospace;
 }
 
-.test {
+.username-bars:hover {
+  box-shadow: 0 0 10px;
+}
+
+.password-bars:hover {
   box-shadow: 0 0 10px;
 }

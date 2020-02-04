@@ -1,13 +1,14 @@
 import React from "react";
 import "./App.css";
 import { Route, Switch } from "react-router-dom";
+import Signup from './components/Signup';
+import PrivateRoute from './components/PrivateRoute';
+import LoginForm from './components/Login';
+import {connect} from 'react-redux';
+import {fetchData} from './actions';
 
-import { connect } from "react-redux";
-import LoginForm from "./components/LoginForm";
-import Signup from "./components/Signup";
-
-const App = (props) => {
-  console.log(props);
+const App = props => {
+  props.fetchData();
   return (
     <div className="App">
       <h1>Hello world!!</h1>
@@ -22,10 +23,9 @@ const App = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
     login: state
   };
 };
 
-export default connect(mapStateToProps, {})(App);
+export default connect(mapStateToProps, {fetchData})(App);
