@@ -18,6 +18,7 @@ export const fetchData = props => dispatch => {
 export const login = user => dispatch => {
     axios.post('https://spotify-song-suggester-5.herokuapp.com/api/auth/login', user)
         .then(response => {
+            localStorage.setItem('token', response.data.token);
             dispatch({ type: 'LOGIN', payload: response.data.token});
         })
         .catch(function (error) {
