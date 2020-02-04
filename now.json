@@ -1,9 +1,9 @@
 {
     "version": 2,
-    "name": "front-end",
+    "name": "my-app",
     "builds": [
         {
-            "src": "front-end/package.json",
+            "src": "my-app/package.json",
             "use": "@now/static-build",
             "config": {
                 "distDir": "build"
@@ -13,7 +13,7 @@
     "routes": [
         {
             "src": "/(.*)",
-            "dest": "front-end/$1"
+            "dest": "my-app/$1"
         }
     ]
 }
