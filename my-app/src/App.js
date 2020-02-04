@@ -3,16 +3,12 @@ import "./App.css";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import Signup from './components/Signup';
 import PrivateRoute from './components/PrivateRoute';
-import {connect} from 'react-redux';
-import {fetchData} from './actions';
 import Dashboard from './components/Dashboard';
 import Login from "./components/Login";
 
-const App = props => {
-  props.fetchData();
+const App = () => {
   return (
     <div className="App">
-    <button onClick={() => localStorage.clear()}>Sign Out</button>
       <Router>
         <Switch>
           <Route exact path="/" component={Login} />
@@ -24,10 +20,4 @@ const App = props => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    login: state
-  };
-};
-
-export default connect(mapStateToProps, {fetchData})(App);
+export default App;
