@@ -1,10 +1,11 @@
 import axios from 'axios';
+import {connect} from 'react-redux';
 
 export const axiosWithAuth = props => {
     return axios.create({
         baseURL: 'https://spotify-song-suggester-5.herokuapp.com',
         headers: {
-            Authorization: props.token
+            Authorization: localStorage.getItem('token')
         }
     });
 }
