@@ -5,6 +5,7 @@ import Signup from './components/Signup';
 import PrivateRoute from './components/PrivateRoute';
 import Dashboard from './components/Dashboard';
 import Login from "./components/Login";
+import SongForm from "./components/SongForm";
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
           <Route exact path="/" component={Login} />
           <Route path="/signup" component={Signup} />
           <PrivateRoute path="/dashboard" component={Dashboard} />
+          <PrivateRoute path="/song-form" component={SongForm} />
         </Switch>
       </Router>
     </div>

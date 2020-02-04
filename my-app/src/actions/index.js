@@ -26,3 +26,15 @@ export const login = user => dispatch => {
         console.log(error);
         });
 };
+
+export const addSong = song => dispatch => {
+    axiosWithAuth()
+    .post('https://spotify-song-suggester-5.herokuapp.com/api/songs', song)
+        .then(response => {
+            dispatch({ type: 'ADD_SONG', payload: response.data});
+        })
+        .catch(function (error) {
+        console.log(error);
+        });
+};
+

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SongList from './SongList';
+import SongForm from './SongForm';
 
 export default function Dashboard () {
 
@@ -11,7 +12,8 @@ export default function Dashboard () {
                 <Link to="/" onClick={() => localStorage.clear()}>Sign Out</Link>
             </div>
             <h1>Hello Dash!</h1>
-                <SongList />
+            <SongList />
+            <SongForm />
         </div>
     )
 }
