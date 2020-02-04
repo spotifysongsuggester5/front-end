@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import axios from 'axios';
+import React, { useState } from "react";
 
 import {connect} from 'react-redux';
 import {login} from '../actions';
@@ -19,12 +18,13 @@ function LoginForm(props) {
     });
   };
 
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios.post('https://spotify-song-suggester-5.herokuapp.com/api/auth/login', credentials)
-      .then(response => {
-        console.log(response);
-      })
+    props.login(credentials);
+    setTimeout(() => {
+      props.history.push("/dashboard");
+    }, 500);
   };
 
   return (
@@ -37,7 +37,6 @@ function LoginForm(props) {
           name="username"
           type="text"
           onChange={handleChange}
-          placeholder="Johndoe@gmail.com"
         />
         <br />
         <label htmlFor="password">password: </label>
