@@ -12,7 +12,6 @@ const App = props => {
   props.fetchData();
   return (
     <div className="App">
-    <button onClick={() => localStorage.clear()}>Sign Out</button>
       <Router>
         <Switch>
           <Route exact path="/" component={Login} />
