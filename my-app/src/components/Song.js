@@ -5,10 +5,9 @@ import "../App.css";
 const Song = (props) => {
   return (
     <div className="cards">
-      <div className="card-header">Artist: {props.song.artist_name}</div>
       <div className="card-body">
         <p className="card-title">Song Name: {props.song.song_name}</p>
-        <p className="card-text">Duration: {props.song.duration}</p>
+        <div className="card-header">Artist: {props.song.artist_name}</div>
         <div className='button-div'>
             <Button color="success">
                 Play
@@ -18,7 +17,6 @@ const Song = (props) => {
             </Button>
         </div>
       </div>
-      <footer className="card-footer">Genre: {props.song.genre}</footer>
     </div>
   );
 };
