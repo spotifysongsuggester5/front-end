@@ -73,7 +73,7 @@ form {
   background: #535353;
   width: 300px;
   margin: 2% 2%;
-  padding: 0 1%;
+  padding: .5%;
 }
 
 .card-body,
@@ -84,6 +84,7 @@ form {
 
 .card-body {
   border-radius: 10px;
+  height: 100%;
 }
 
 .song-form {

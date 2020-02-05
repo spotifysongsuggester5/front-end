@@ -6,17 +6,14 @@ const Song = (props) => {
   return (
     <div className="cards">
       <div className="card-body">
-        <p className="card-title">Song Name: {props.song.song_name}</p>
-        <div className="card-header">Artist: {props.song.artist_name}</div>
+        <p className="card-title">{props.song.song_name}</p>
+        <div className="card-header">{props.song.artist_name}</div>
         <div className='button-div'>
             <Button color="success">
                 Play
             </Button>
             <Button color="success">
                 Add
-            </Button>
-            <Button className="deleteSong" onClick={() => props.deleteSong(props.song)}>
-                Delete
             </Button>
         </div>
       </div>
