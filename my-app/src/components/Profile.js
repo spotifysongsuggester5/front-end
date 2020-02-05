@@ -12,6 +12,11 @@ const Profile = props => {
             <h1>Hello {props.username}!</h1>
             <h3>Saved songs</h3>
             <h3>Suggested songs</h3>
+            <div>
+                {props.savedSongs.map(el => (
+                    <p>{el.song_name} - {el.artist_name}</p>
+                ))}
+            </div>
         </div>
     );
 };
@@ -19,6 +24,7 @@ const Profile = props => {
 const mapStateToProps = (state) => {
     return {
         username: state.authReducer.credentials.username,
+        savedSongs: state.authReducer.savedSongs,
         songs: state.songReducer.songs
     };
 };
