@@ -85,3 +85,7 @@ form {
   flex-flow: row wrap;
   justify-content: space-around;
 }
+
+.loader {
+  margin-top: 8%;
+}
