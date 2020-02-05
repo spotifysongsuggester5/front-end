@@ -22,3 +22,11 @@ export const addSong = () => dispatch => {
         });
 };
 
+export const saveProfile = profile => {
+    console.log(profile);
+    return {
+        type: 'LOGIN',
+        payload: profile
+    }
+}
+

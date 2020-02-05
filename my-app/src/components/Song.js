@@ -14,7 +14,7 @@ const Song = (props) => {
                 Play
             </Button>
             <Button color="success">
-                Delete
+                Add
             </Button>
         </div>
       </div>
