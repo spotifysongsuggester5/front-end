@@ -19,7 +19,10 @@ export const songReducer = (state = initialState, action) => {
         case 'ADD_SONG':
         return {
             ...state,
-            songs: [...action.payload]
+            songs: [
+                ...state.songs,
+                action.payload
+            ]
         }
         default:
         return state;

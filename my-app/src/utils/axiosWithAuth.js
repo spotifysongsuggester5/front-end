@@ -1,22 +1,10 @@
 import axios from 'axios';
-import {connect} from 'react-redux';
 
-export const axiosWithAuth = props => {
+export const axiosWithAuth = () => {
     return axios.create({
-        baseURL: 'https://spotify-song-suggester-5.herokuapp.com',
+        baseURL: 'https://spotify-song-suggester-5.herokuapp.com/api',
         headers: {
             Authorization: localStorage.getItem('token')
         }
     });
-}
-
-const mapStateToProps = state => {
-    return {
-        token: state.authReducer.token
-    }
-}
-
-export default connect(
-    mapStateToProps,
-    {}
-)(axiosWithAuth);
+};

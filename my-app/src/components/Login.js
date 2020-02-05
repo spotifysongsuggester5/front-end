@@ -1,34 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {Link} from 'react-router-dom';
 import axios from 'axios';
 
-import * as Yup from "yup";
-
 import { connect } from "react-redux";
 
-// const yup = require("yup");
-
-// const schema = Yup.object().shape({
-//   username: Yup.require()
-//     .min()
-//     .error(),
-//   password: Yup.require()
-//     .min()
-//     .error()
-// });
-
 function LoginForm(props) {
-  console.log(props);
   const [credentials, setCredentials] = useState({
-    username: "",
-    password: ""
+    username: '',
+    password: ''
   });
 
-  const handleChange = (event) => {
-    event.preventDefault();
+  const handleChange = (e) => {
     setCredentials({
       ...credentials,
-      [event.target.name]: event.target.value
+      [e.target.name]: e.target.value
     });
   };
 
@@ -37,15 +22,14 @@ function LoginForm(props) {
     axios
       .post(
         "https://spotify-song-suggester-5.herokuapp.com/api/auth/login",
-        props.credentials
+        credentials
       )
       .then((response) => {
         localStorage.setItem('token', response.data.token);
-        console.log(response);
-      });
-      setTimeout(() => {
+        console.log(response.data.message);
         props.history.push("/dashboard");
-      }, 1000);
+      })
+      .catch(err => console.log(err));
   };
 
   return (
@@ -59,6 +43,7 @@ function LoginForm(props) {
           name="username"
           type="text"
           onChange={handleChange}
+          required
         />
         <br />
         <label htmlFor="password">Password </label>
@@ -68,6 +53,7 @@ function LoginForm(props) {
           name="password"
           type="text"
           onChange={handleChange}
+          required
         />
         <button className='btn btn-success submit'>Submit</button>
         <Link to='/signup'>Don't have account? Click here!</Link>
