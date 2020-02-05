@@ -4,7 +4,7 @@ import {addSong} from '../actions';
 
 function LoginForm(props) {
     const [newSong, setNewSong] = useState([])
-    props.addSong()
+    // props.addSong()
     const handleChange = (event) => {
         event.preventDefault();
         setNewSong({
