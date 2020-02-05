@@ -34,3 +34,24 @@ export const addSong = newSong => dispatch => {
         });
 };
 
+export const saveProfile = profile => {
+    console.log(profile);
+    return {
+        type: 'LOGIN',
+        payload: profile
+    }
+}
+
+export const deleteSong = song => dispatch => {
+    console.log(song);
+    axiosWithAuth()
+        .delete(`/songs/${song.id}`)
+        .then(response => {
+            console.log(response);
+            fetchData()
+        })
+        .catch(error => {
+            console.log(error);
+        })
+}
+

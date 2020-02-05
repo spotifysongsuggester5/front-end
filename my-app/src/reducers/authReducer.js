@@ -3,15 +3,13 @@ const initialState = {
         username: '',
         password: ''
     },
-    token: ''
 }
 
 export const authReducer = (state = initialState, action) => {
     switch (action.type) {
         case 'LOGIN':
         return {
-            ...state,
-            token: action.payload,
+            credentials: action.payload
         }
         default:
         return state;

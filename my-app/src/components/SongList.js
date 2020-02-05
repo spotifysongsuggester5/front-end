@@ -1,41 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import { fetchData } from "../actions";
-import {axiosWithAuth} from '../utils/axiosWithAuth';
+import { fetchData, deleteSong } from "../actions";
 
 import "../App.css";
-
-import { Button } from "reactstrap";
+import Song from "./Song";
 
 const SongList = (props) => {
-  const [songs, setSongs] = useState([]);
-  console.log(props.songs);
   useEffect(() => {
     props.fetchData();
   }, []);
 
-  let id = props.songs.id;
-  const deleteFriend = () => {
-    axiosWithAuth()
-      .delete(`/api/songs/:id`, props.songs)
-      .then(response => {
-        setSongs(...response.data.filter(song => song.id !== id));
-      })
-  }
-  
   return (
-    <div className="card-container">
-      <div className="cards">
-        <div className="card-header">Artist: {props.songs.artist_name}</div>
-        <div className="card-body">
-          <p className="card-title">Song Name: {props.songs.song_name}</p>
-          <p className="card-text">Duration: {props.songs.duration}</p>
-          <Button color="success" src={props.songs.song_url}>
-            Play Song
-          </Button>
-        </div>
-        <footer className="card-footer">Genre: {props.songs.genre}</footer>
-      </div>
+    <div className="main-card-container">
+      {props.songs.map((el) => (
+        <Song song={el} key={el.id} deleteSong={props.deleteSong} />
+      ))}
     </div>
   );
 };
@@ -46,4 +25,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { fetchData })(SongList);
+export default connect(mapStateToProps, { fetchData, deleteSong })(SongList);
