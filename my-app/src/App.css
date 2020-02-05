@@ -14,18 +14,24 @@
   width: 100%;
   margin: 0 auto 2%;
   padding: 2% 0.5%;
-  background-color: black;
+  background-color: #212121;
   margin: 2% auto;
 }
 
 .nav-links a {
   text-decoration: none;
-  color: black;
-  border: 1px solid white;
+  color: white;
+  border: .5px solid white;
   padding: 1%;
   border-radius: 10px;
-  background: #1ed761;
+  background: #28a745;
   width: 20%;
+}
+
+.nav-links a:hover {
+  box-shadow: 0 0 10px;
+  color: white;
+  text-decoration: none;
 }
 
 input {
@@ -88,4 +94,9 @@ form {
 
 .loader {
   margin-top: 8%;
+}
+
+.button-div {
+  display: flex;
+  background-color: #212121;
 }

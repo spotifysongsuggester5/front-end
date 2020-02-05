@@ -32,6 +32,7 @@ function LoginForm(props) {
       )
       .then((response) => {
         localStorage.setItem("token", JSON.stringify(response.data.token));
+        localStorage.setItem("message", response.data.message);
         console.log(response);
         props.history.push("/dashboard");
         setLoader(false);
