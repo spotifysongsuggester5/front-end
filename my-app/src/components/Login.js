@@ -25,8 +25,8 @@ function LoginForm(props) {
         credentials
       )
       .then((response) => {
-        localStorage.setItem('token', response.data.token);
-        console.log(response.data.message);
+        localStorage.setItem("token", JSON.stringify(response.data.token));
+        console.log(response);
         props.history.push("/dashboard");
       })
       .catch(err => console.log(err));

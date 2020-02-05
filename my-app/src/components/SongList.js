@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { fetchData } from "../actions";
 
@@ -7,7 +7,11 @@ import "../App.css";
 import { Button } from "reactstrap";
 
 const SongList = (props) => {
-  props.fetchData();
+
+  useEffect(() => {
+    props.fetchData();
+  }, [props.songs]);
+
   return (
     <div className="card-container">
       <div className="cards">
