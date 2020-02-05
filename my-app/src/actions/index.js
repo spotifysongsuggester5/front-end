@@ -4,7 +4,7 @@ export const fetchData = () => dispatch => {
     axiosWithAuth()
         .get('/songs')
         .then(res => {
-            console.log(res);
+            dispatch({ type: 'FETCH', payload: res.data});
         })
         .catch(err => {
             console.log(err);
