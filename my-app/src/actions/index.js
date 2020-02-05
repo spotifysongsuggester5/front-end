@@ -1,4 +1,3 @@
-import {useEffect} from 'react';
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 
 export const fetchData = () => dispatch => {
@@ -14,12 +13,12 @@ export const fetchData = () => dispatch => {
 
 export const addSong = () => dispatch => {
     axiosWithAuth()
-    .post('https://spotify-song-suggester-5.herokuapp.com/api/songs')
+    .post('/songs')
         .then(response => {
             dispatch({ type: 'ADD_SONG', payload: response.data});
         })
         .catch(function (error) {
-        console.log(error);
+            console.log(error);
         });
 };
 

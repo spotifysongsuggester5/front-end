@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-
 import { connect } from "react-redux";
 import {addSong} from '../actions';
 
 function LoginForm(props) {
-    const [newSong, setNewSong] = useState(props.newSong)
-    
+    const [newSong, setNewSong] = useState([])
+    // props.addSong()
     const handleChange = (event) => {
         event.preventDefault();
         setNewSong({
@@ -16,16 +15,14 @@ function LoginForm(props) {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(newSong);
         props.addSong(newSong);
-        // setNewSong({
-        //     ...newSong
-        // });
     };
+    console.log(newSong);
 
     return (
-        <div className='form-div'>
+        <div className='song-form'>
             <form onSubmit={handleSubmit}>
+            <h2>Add Song:</h2>
             <label htmlFor="name">Name</label>
             <input
                 value={newSong.name}
@@ -49,7 +46,7 @@ function LoginForm(props) {
                 type="text"
                 onChange={handleChange}
             />
-            <button>Submit</button>
+            <button className='btn-success btn'>Submit</button>
             </form>
         </div>
         );
@@ -58,7 +55,7 @@ function LoginForm(props) {
 const mapStateToProps = (state) => {
     console.log(state);
   return {
-      newSong: state.songReducer.newSong
+    newSong: state.songReducer.newSong,
   };
 };
 

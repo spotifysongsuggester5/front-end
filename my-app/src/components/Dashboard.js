@@ -10,9 +10,8 @@ export default function Dashboard () {
                 <Link to="/dashboard">Dashboard</Link>
                 <Link to="/" onClick={() => localStorage.clear()}>Sign Out</Link>
             </div>
-            <h1>Hello Dash!</h1>
             <SongList />
-            {/* <SongForm /> */}
+            <SongForm />
         </div>
     )
 }
