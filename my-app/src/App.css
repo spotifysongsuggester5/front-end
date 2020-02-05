@@ -51,20 +51,22 @@ form {
 
 .form-div {
   margin: auto;
-
 }
 
 .card-container {
   display: flex;
-  justify-content: space-around;
+  flex-flow: row wrap;
+  border: 1px solid white;
+  width: 22.5%;
 }
 
 .cards {
   border: 1px solid #b3b3b3;
-  width: 22.5%;
   color: white;
   border-radius: 8px;
   background: #535353;
+  width: 300px;
+  margin: 2% 2%;
 }
 
 .card-body,
@@ -76,4 +78,11 @@ form {
 .song-form {
   width: 50%;
   margin: auto;
+}
+
+.main-card-container {
+  border: 1px solid white;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
 }

@@ -11,8 +11,8 @@ const SongList = (props) => {
   }, []);
 
   return (
-    <div>
-      {props.songs.map(el => (
+    <div className="main-card-container">
+      {props.songs.map((el) => (
         <Song song={el} key={el.id} />
       ))}
     </div>
