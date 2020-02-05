@@ -8,17 +8,15 @@ const Song = (props) => {
       <div className="card-header">Artist: {props.song.artist_name}</div>
       <div className="card-body">
         <p className="card-title">Song Name: {props.song.song_name}</p>
-        <p className="card-text">Duration: {props.song.duration}</p>
         <div className='button-div'>
-            <Button color="success">
-                Play
-            </Button>
-            <Button color="success">
-                Add
-            </Button>
+          <Button target='_blank' href={props.song.song_url} color="success">
+              Listen
+          </Button>
+          <Button onClick={() => props.saveSong(props.song)} color="success">
+              Add
+          </Button>
         </div>
       </div>
-      <footer className="card-footer">Genre: {props.song.genre}</footer>
     </div>
   );
 };

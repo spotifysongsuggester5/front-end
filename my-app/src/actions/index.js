@@ -30,3 +30,11 @@ export const saveProfile = profile => {
     }
 }
 
+export const saveSong = song => {
+    console.log(song);
+    return {
+        type: 'SAVE',
+        payload: song
+    }
+}
+
