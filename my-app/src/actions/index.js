@@ -39,8 +39,8 @@ export const saveProfile = profile => {
     return {
         type: 'LOGIN',
         payload: profile
-    }
-}
+    };
+};
 
 export const deleteSong = song => dispatch => {
     console.log(song);
@@ -53,5 +53,13 @@ export const deleteSong = song => dispatch => {
         .catch(error => {
             console.log(error);
         })
-}
+};
+
+export const saveSong = song => {
+    console.log(song);
+    return {
+        type: 'SAVE',
+        payload: song
+    }
+};
 

@@ -3,6 +3,7 @@ const initialState = {
         username: '',
         password: ''
     },
+    savedSongs: []
 }
 
 export const authReducer = (state = initialState, action) => {
@@ -11,6 +12,14 @@ export const authReducer = (state = initialState, action) => {
         return {
             credentials: action.payload
         }
+        case 'SAVE':
+            return {
+                ...state,
+                savedSongs: [
+                    ...state.savedSongs,
+                    action.payload
+                ]
+            }
         default:
         return state;
     }
