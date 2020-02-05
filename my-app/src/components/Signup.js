@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-import {connect} from 'react-redux';
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+
+import { Spinner } from "reactstrap";
+import "../App.css";
 
 function LoginForm(props) {
   console.log(props);
@@ -10,6 +13,8 @@ function LoginForm(props) {
     username: "",
     password: ""
   });
+
+  const [loader, setLoader] = useState(false);
 
   const handleChange = (event) => {
     event.preventDefault();
@@ -20,6 +25,7 @@ function LoginForm(props) {
   };
 
   const handleSubmit = (event) => {
+    setLoader(true);
     event.preventDefault();
     axios
       .post(
@@ -28,34 +34,39 @@ function LoginForm(props) {
       )
       .then((response) => {
         console.log(response);
+        setLoader(false);
       });
-      // setTimeout(() => {
-      //   props.history.push("/dashboard");
-      // }, 1000);
+    // setTimeout(() => {
+    //   props.history.push("/dashboard");
+    // }, 1000);
   };
 
   return (
     <div>
-      <h1 className='form-div'>Sign Up</h1>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="username">Username </label>
-        <input
-          value={credentials.username}
-          name="username"
-          type="text"
-          onChange={handleChange}
-        />
-        <br />
-        <label htmlFor="password">Password </label>
-        <input
-          value={credentials.password}
-          name="password"
-          type="text"
-          onChange={handleChange}
-        />
-        <button className='btn btn-success submit'>Submit</button>
-        <Link to='/'>Already have an account? Click here!</Link>
-      </form>
+      <h1 className="form-div">Sign Up</h1>
+      {loader ? (
+        <Spinner className="loader" style={{ width: "3rem", height: "3rem" }} />
+      ) : (
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="username">Username </label>
+          <input
+            value={credentials.username}
+            name="username"
+            type="text"
+            onChange={handleChange}
+          />
+          <br />
+          <label htmlFor="password">Password </label>
+          <input
+            value={credentials.password}
+            name="password"
+            type="text"
+            onChange={handleChange}
+          />
+          <button className="btn btn-success submit">Submit</button>
+          <Link to="/">Already have an account? Click here!</Link>
+        </form>
+      )}
     </div>
   );
 }
