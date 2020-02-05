@@ -29,6 +29,9 @@ function LoginForm(props) {
       .then((response) => {
         console.log(response);
       });
+      // setTimeout(() => {
+      //   props.history.push("/dashboard");
+      // }, 1000);
   };
 
   return (
