@@ -38,8 +38,8 @@ function LoginForm(props) {
       })
       .catch((err) => {
         console.log(err);
-        setLoader(false);
-      });
+      })
+      .finally(() => setLoader(false))
   };
 
   return (
