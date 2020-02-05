@@ -13,6 +13,9 @@ const Song = (props) => {
                 Play
             </Button>
             <Button color="success">
+                Add
+            </Button>
+            <Button className="deleteSong" onClick={() => props.deleteSong(props.song)}>
                 Delete
             </Button>
         </div>

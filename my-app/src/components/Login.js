@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-
 import { connect } from "react-redux";
-
 import { Spinner } from "reactstrap";
+
+import {saveProfile} from '../actions';
 import "../App.css";
 
 function LoginForm(props) {
@@ -33,7 +33,7 @@ function LoginForm(props) {
       .then((response) => {
         localStorage.setItem("token", JSON.stringify(response.data.token));
         localStorage.setItem("message", response.data.message);
-        console.log(response);
+        props.saveProfile(credentials);
         props.history.push("/dashboard");
         setLoader(false);
       })
@@ -83,4 +83,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, {})(LoginForm);
+export default connect(mapStateToProps, { saveProfile })(LoginForm);
