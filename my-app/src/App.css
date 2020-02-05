@@ -81,7 +81,6 @@ form {
 }
 
 .main-card-container {
-  border: 1px solid white;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
