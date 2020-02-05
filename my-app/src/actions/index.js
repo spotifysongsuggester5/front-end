@@ -3,19 +3,31 @@ import { axiosWithAuth } from "../utils/axiosWithAuth";
 export const fetchData = () => dispatch => {
     axiosWithAuth()
         .get('/songs')
-        .then(res => {
-            console.log(res);
+        .then(response => {
+            console.log(response);
+            dispatch({ type: 'FETCH', payload: response.data});
         })
-        .catch(err => {
-            console.log(err);
+        .catch(error => {
+            console.log(error);
         })
 };
 
-export const addSong = () => dispatch => {
+export const addSong = newSong => dispatch => {
+    dispatch({ type: 'ADD_SONG'});
     axiosWithAuth()
-    .post('/songs')
+    .post('/songs', newSong)
         .then(response => {
-            dispatch({ type: 'ADD_SONG', payload: response.data});
+            axiosWithAuth()
+            .get('/songs')
+            .then(response => {
+                console.log(response);
+            })
+            .catch(error => {
+                console.log(error)
+            })
+            .finally(() => {
+                dispatch({type: 'SUCCESS'})
+            })
         })
         .catch(function (error) {
             console.log(error);
