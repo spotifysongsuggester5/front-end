@@ -1,33 +1,28 @@
-import React from 'react';
-import {connect} from 'react-redux';
-import {fetchData} from '../actions';
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
+import { fetchData } from "../actions";
 
-const SongList = props => {
+import "../App.css";
+import Song from "./Song";
+
+const SongList = (props) => {
+  useEffect(() => {
     props.fetchData();
-    setTimeout(() => {
-    console.log(props.songs);        
-      }, 1000);
-    return (
-        <div>
-            <div>
-                <h1>Song List</h1>
-            </div>
-            <div>
-                <h3>Song: {props.songs.song_name}</h3>
-                <h3>Artist: {props.songs.artist_name}</h3>
-                <h3>Duration: {props.songs.duration}</h3>
-            </div>
-        </div>
-    )
-}
+  }, []);
 
-const mapStateToProps = state => {
-    return {
-        songs: state.authReducer.songs,
-    }
-}
+  return (
+    <div>
+      {props.songs.map(el => (
+        <Song song={el} key={el.id} />
+      ))}
+    </div>
+  );
+};
 
-export default connect(
-    mapStateToProps,
-    {fetchData}
-)(SongList);
+const mapStateToProps = (state) => {
+  return {
+    songs: state.songReducer.songs
+  };
+};
+
+export default connect(mapStateToProps, { fetchData })(SongList);
