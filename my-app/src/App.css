@@ -51,6 +51,7 @@ form {
 
 .form-div {
   margin: auto;
+
 }
 
 .card-container {
@@ -70,4 +71,9 @@ form {
 .card-title,
 .card-text {
   background: #212121;
+}
+
+.song-form {
+  width: 50%;
+  margin: auto;
 }

@@ -7,7 +7,7 @@ import "../App.css";
 import { Button } from "reactstrap";
 
 const SongList = (props) => {
-  props.fetchData();
+  // props.fetchData();
   return (
     <div className="card-container">
       <div className="cards">

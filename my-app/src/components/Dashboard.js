@@ -12,7 +12,7 @@ export default function Dashboard () {
             </div>
             <h1>Hello Dash!</h1>
             <SongList />
-            {/* <SongForm /> */}
+            <SongForm />
         </div>
     )
 }
