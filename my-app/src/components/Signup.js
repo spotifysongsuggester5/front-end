@@ -29,14 +29,14 @@ function LoginForm(props) {
     event.preventDefault();
     axios
       .post(
-        "https://spotify-song-suggester-5.herokuapp.com/api/auth/register",
+        "https://spotify-buildweek.herokuapp.com/api/auth/register",
         credentials
       )
       .then((response) => {
         console.log(response);
         axios
           .post(
-            "https://spotify-song-suggester-5.herokuapp.com/api/auth/login",
+            "https://spotify-buildweek.herokuapp.com/api/auth/login",
             credentials
           )
           .then((response) => {
