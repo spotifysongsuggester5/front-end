@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-import { Spinner } from 'reactstrap';
+import { Spinner } from "reactstrap";
 
-import {connect} from 'react-redux';
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
 import "../App.css";
@@ -48,7 +48,7 @@ function LoginForm(props) {
           .catch((err) => {
             console.log(err);
           })
-          .finally(() => setLoader(false))
+          .finally(() => setLoader(false));
       });
   };
 
@@ -65,14 +65,19 @@ function LoginForm(props) {
             name="username"
             type="text"
             onChange={handleChange}
+            minLength="3"
+            required
           />
           <br />
           <label htmlFor="password">Password </label>
           <input
             value={credentials.password}
             name="password"
-            type="text"
+            type="password"
             onChange={handleChange}
+            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+            title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+            required
           />
           <button className="btn btn-success submit">Submit</button>
           <Link to="/">Already have an account? Click here!</Link>
