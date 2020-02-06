@@ -42,18 +42,26 @@ export const saveProfile = profile => {
     };
 };
 
-export const deleteSong = song => dispatch => {
+export const deleteSong = song => {
     console.log(song);
-    axiosWithAuth()
-        .delete(`/songs/${song.id}`)
-        .then(response => {
-            console.log(response);
-            fetchData()
-        })
-        .catch(error => {
-            console.log(error);
-        })
+    return {
+        type: 'DELETE',
+        payload: song
+    };
 };
+
+// export const deleteSong = song => dispatch => {
+//     console.log(song);
+//     axiosWithAuth()
+//         .delete(`/songs/${song.id}`)
+//         .then(response => {
+//             console.log(response);
+//             fetchData();
+//         })
+//         .catch(error => {
+//             console.log(error);
+//         })
+// };
 
 export const saveSong = song => {
     console.log(song);
@@ -62,4 +70,17 @@ export const saveSong = song => {
         payload: song
     }
 };
+
+// export const saveSong = song => {
+//     console.log(song);
+//     axiosWithAuth()
+//         .post(`/songs/`, song)
+//         .then(response => {
+//             console.log(response);
+//             fetchData();
+//         })
+//         .catch(error => {
+//             console.log(error);
+//         })
+// };
 

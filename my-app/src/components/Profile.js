@@ -2,6 +2,8 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import SongForm from './SongForm';
+import SavedSong from './SavedSong';
+import {deleteSong} from '../actions';
 
 const Profile = props => {
     return (
@@ -14,7 +16,7 @@ const Profile = props => {
             <h3>Saved songs</h3>
             <div>
                 {props.savedSongs.map((el, index) => (
-                    <p key={index}>{el.song_name} - {el.artist_name}</p>
+                    <SavedSong song={el} key={index} deleteSong={props.deleteSong} />
                 ))}
             </div>
             <SongForm />
@@ -31,4 +33,4 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps, {})(Profile);
+export default connect(mapStateToProps, {deleteSong})(Profile);
