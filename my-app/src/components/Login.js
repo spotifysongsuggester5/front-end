@@ -40,6 +40,7 @@ function LoginForm(props) {
       })
       .catch((err) => {
         console.log(err);
+        alert('Wrong Credentials! Maybe you need to sign up?');
       })
       .finally(() => setLoader(false))
   };

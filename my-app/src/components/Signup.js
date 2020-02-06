@@ -40,9 +40,10 @@ function LoginForm(props) {
             credentials
           )
           .then((response) => {
+            console.log(response);
             localStorage.setItem("token", JSON.stringify(response.data.token));
             localStorage.setItem("message", response.data.message);
-            console.log(response);
+            alert('Sign up complete! You will now be redirected to your new dashboard!');
             props.history.push("/dashboard");
           })
           .catch((err) => {
