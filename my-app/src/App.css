@@ -2,10 +2,14 @@
   text-align: center;
 }
 
+@import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
+
 * {
   box-sizing: border-box;
   background-color: black;
   color: white;
+  font-family: 'Ubuntu';
+  font-weight: bold;
 }
 
 .nav-links {
