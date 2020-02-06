@@ -65,6 +65,7 @@ function LoginForm(props) {
             name="username"
             type="text"
             onChange={handleChange}
+            required
           />
           <br />
           <label htmlFor="password">Password </label>
@@ -75,6 +76,7 @@ function LoginForm(props) {
             onChange={handleChange}
             pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
             title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+            required
           />
           <button className="btn btn-success submit">Submit</button>
           <Link to="/">Already have an account? Click here!</Link>
