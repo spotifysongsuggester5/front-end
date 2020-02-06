@@ -41,6 +41,7 @@ function LoginForm(props) {
       .catch((err) => {
         console.log(err);
         alert('Wrong Credentials! Maybe you need to sign up?');
+        props.history.push('/signup');
       })
       .finally(() => setLoader(false))
   };
