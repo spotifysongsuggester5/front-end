@@ -26,6 +26,16 @@ export const authReducer = (state = initialState, action) => {
                 ...state,
                 savedSongs: state.savedSongs.filter(song => song !== action.payload)
             }
+        case 'UPDATE':
+            const newList = state.savedSongs.filter(song => song !== action.payload.original);
+            return {
+                ...state,
+                savedSongs: [
+                    ...newList,
+                    action.payload.updated
+                ]
+
+            }
         default:
         return state;
     }

@@ -21,6 +21,11 @@ function LoginForm(props) {
     const handleSubmit = (event) => {
         event.preventDefault();
         props.saveSong(newSong);
+        setNewSong({
+            song_name: '',
+            artist_name: ''
+        })
+        props.setAddSong(false);
     //  axiosWithAuth()
     //     .put('', newSong)
     //     .then(res => {

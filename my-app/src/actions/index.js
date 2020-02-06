@@ -84,3 +84,10 @@ export const saveSong = song => {
 //         })
 // };
 
+export const updateSong = songs => {
+    console.log(songs);
+    return {
+        type: 'UPDATE',
+        payload: songs
+    }
+}

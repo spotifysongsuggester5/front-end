@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import SongForm from './SongForm';
 import SavedSong from './SavedSong';
-import {deleteSong} from '../actions';
+import {deleteSong, updateSong} from '../actions';
 
 const Profile = props => {
+    const [addSong, setAddSong] = useState(false);
+    
     return (
         <div>
             <div className="nav-links">
@@ -16,10 +18,13 @@ const Profile = props => {
             <h3>Saved songs</h3>
             <div>
                 {props.savedSongs.map((el, index) => (
-                    <SavedSong song={el} key={index} deleteSong={props.deleteSong} />
+                    <SavedSong song={el} key={index} updateSong={props.updateSong} deleteSong={props.deleteSong} />
                 ))}
+                <button onClick={() => setAddSong(true)} >Add a Song!</button>
+                {addSong && (
+                    <SongForm setAddSong={setAddSong} />
+                )}
             </div>
-            <SongForm />
             <h3>Suggested songs</h3>
         </div>
     );
@@ -33,4 +38,4 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps, {deleteSong})(Profile);
+export default connect(mapStateToProps, {deleteSong, updateSong})(Profile);
