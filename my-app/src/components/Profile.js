@@ -13,12 +13,12 @@ const Profile = props => {
             <h1>Hello {props.username}!</h1>
             <h3>Saved songs</h3>
             <div>
-                {props.savedSongs.map(el => (
-                    <p>{el.song_name} - {el.artist_name}</p>
+                {props.savedSongs.map((el, index) => (
+                    <p key={index}>{el.song_name} - {el.artist_name}</p>
                 ))}
             </div>
-            <h3>Suggested songs</h3>
             <SongForm />
+            <h3>Suggested songs</h3>
         </div>
     );
 };
