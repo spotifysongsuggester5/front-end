@@ -65,6 +65,7 @@ function LoginForm(props) {
             name="username"
             type="text"
             onChange={handleChange}
+            minLength="3"
             required
           />
           <br />
