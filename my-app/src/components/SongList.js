@@ -9,7 +9,7 @@ const SongList = (props) => {
   useEffect(() => {
     props.fetchData();
   }, []);
-
+  console.log(props.songs);
   return (
     <div className="main-card-container">
       {props.songs.map((el) => (
