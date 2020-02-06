@@ -2,7 +2,7 @@ import { axiosWithAuth } from "../utils/axiosWithAuth";
 
 export const fetchData = () => dispatch => {
     axiosWithAuth()
-        .get('/songs')
+        .get('/api')
         .then(response => {
             console.log(response);
             dispatch({ type: 'FETCH', payload: response.data});
