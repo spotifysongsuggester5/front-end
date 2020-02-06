@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
+import SongForm from './SongForm';
 
 const Profile = props => {
     return (
@@ -17,6 +18,7 @@ const Profile = props => {
                     <p>{el.song_name} - {el.artist_name}</p>
                 ))}
             </div>
+            <SongForm />
         </div>
     );
 };

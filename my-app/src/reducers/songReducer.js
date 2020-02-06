@@ -2,11 +2,12 @@ const initialState = {
     songs: [],
     newSong: [
         {
-            name: '',
-            artist: '',
+            song_name: '',
+            artist_name: '',
             genre: ''
         }
-    ]
+    ],
+    isLoading: false
 }
 
 export const songReducer = (state = initialState, action) => {
@@ -19,10 +20,12 @@ export const songReducer = (state = initialState, action) => {
         case 'ADD_SONG':
         return {
             ...state,
-            songs: [
-                ...state.songs,
-                action.payload
-            ]
+            isLoading: true
+        }
+        case 'SUCCESS':
+        return {
+            ...state,
+            isLoading: false
         }
         default:
         return state;

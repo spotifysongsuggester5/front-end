@@ -5,9 +5,8 @@ import "../App.css";
 const Song = (props) => {
   return (
     <div className="cards">
-      <div className="card-header">Artist: {props.song.artist_name}</div>
       <div className="card-body">
-        <p className="card-title">Song Name: {props.song.song_name}</p>
+        <div className="card-header">{props.song.artist_name}<br />{props.song.song_name}</div>
         <div className='button-div'>
           <Button target='_blank' href={props.song.song_url} color="success">
               Listen
