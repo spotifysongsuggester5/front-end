@@ -1,8 +1,8 @@
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 
-export const fetchData = profile => dispatch => {
+export const fetchData = () => dispatch => {
     axiosWithAuth()
-        .get(`user/dashboard/2`)
+        .get('/songs')
         .then(response => {
             console.log(response);
             dispatch({ type: 'FETCH', payload: response.data});
