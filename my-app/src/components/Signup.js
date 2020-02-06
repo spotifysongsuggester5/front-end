@@ -53,8 +53,8 @@ function LoginForm(props) {
   };
 
   return (
-    <div>
-      <h1 className="form-div">Sign Up</h1>
+    <div className='form-div'>
+      <h1>Sign Up</h1>
       {loader ? (
         <Spinner className="loader" style={{ width: "3rem", height: "3rem" }} />
       ) : (

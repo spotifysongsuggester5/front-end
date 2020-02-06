@@ -51,12 +51,17 @@ form {
   margin: 2% auto;
 }
 
+form a {
+  color: grey;
+}
+
 .btn {
   margin: 2% auto;
 }
 
 .form-div {
-  margin: auto;
+  margin: 25% auto;
+  
 }
 
 .card-container {
@@ -105,4 +110,8 @@ form {
 .button-div {
   display: flex;
   background-color: #212121;
+}
+
+.submit {
+  margin: 2% auto;
 }
