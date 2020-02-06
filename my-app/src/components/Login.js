@@ -31,6 +31,7 @@ function LoginForm(props) {
         credentials
       )
       .then((response) => {
+        console.log(response);
         localStorage.setItem("token", JSON.stringify(response.data.token));
         localStorage.setItem("message", response.data.message);
         props.saveProfile(credentials);

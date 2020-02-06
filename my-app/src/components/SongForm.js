@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import {saveSong} from '../actions';
+import {saveSong, fetchData} from '../actions';
+// import { axiosWithAuth } from "../utils/axiosWithAuth";
+
 
 function LoginForm(props) {
     const [newSong, setNewSong] = useState({
@@ -19,8 +21,16 @@ function LoginForm(props) {
     const handleSubmit = (event) => {
         event.preventDefault();
         props.saveSong(newSong);
+    //  axiosWithAuth()
+    //     .put('', newSong)
+    //     .then(res => {
+    //         console.log(res);
+    //         props.fetchData();
+    //     })
+    //     .catch(err => console.log(err));
     };
-    console.log(newSong);
+
+    
 
     return (
         <div className='song-form'>
@@ -49,10 +59,9 @@ function LoginForm(props) {
     }
 
 const mapStateToProps = (state) => {
-    console.log(state);
   return {
     newSong: state.songReducer.newSong,
   };
 };
 
-export default connect(mapStateToProps, {saveSong})(LoginForm);
+export default connect(mapStateToProps, {saveSong, fetchData})(LoginForm);
