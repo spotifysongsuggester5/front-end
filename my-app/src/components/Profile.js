@@ -12,18 +12,18 @@ const Profile = props => {
         <div>
             <div className="nav-links">
                 <Link to="/dashboard">Dashboard</Link>
+                <a onClick={() => setAddSong(true)} >Add a Song</a>
                 <Link to="/" onClick={() => localStorage.clear()}>Sign Out</Link>
             </div>
             <h1>Hello {props.username}!</h1>
+                {addSong && (
+                    <SongForm setAddSong={setAddSong} />
+                )}
             <h3>Saved songs</h3>
             <div>
                 {props.savedSongs.map((el, index) => (
                     <SavedSong song={el} key={index} updateSong={props.updateSong} deleteSong={props.deleteSong} />
                 ))}
-                <button onClick={() => setAddSong(true)} >Add a Song!</button>
-                {addSong && (
-                    <SongForm setAddSong={setAddSong} />
-                )}
             </div>
             <h3>Suggested songs</h3>
         </div>

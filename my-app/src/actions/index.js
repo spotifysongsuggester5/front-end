@@ -85,9 +85,22 @@ export const saveSong = song => {
 // };
 
 export const updateSong = songs => {
-    console.log(songs);
+    console.log(songs); // songs = { original: '', updated: ''}
     return {
         type: 'UPDATE',
         payload: songs
-    }
-}
+    };
+};
+
+// export const updateSong = song => {
+//     console.log(song);
+//     axiosWithAuth()
+//         .put(``, song)
+//         .then(response => {
+//             console.log(response);
+//             fetchData();
+//         })
+//         .catch(error => {
+//             console.log(error);
+//         })
+// };
