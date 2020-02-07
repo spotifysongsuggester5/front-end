@@ -76,6 +76,8 @@ function LoginForm(props) {
           <Link to="/signup">Don't have account? Click here!</Link>
         </form>
       )}
+          <a href='https://spotifysongsuggester.netlify.com/'><button className="btn btn-success submit">Marketing Page</button></a>
+
     </div>
   );
 }
